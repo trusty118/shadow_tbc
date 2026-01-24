@@ -1,4 +1,4 @@
-import { IActorData } from 'src/app/logs/interfaces';
+import { IActorData } from "src/app/logs/interfaces";
 
 export class Actor {
   id: number;
@@ -10,7 +10,7 @@ export class Actor {
   owner: number|undefined;
   friendly: boolean;
   encounterIds: number[];
-  shadowFiendId: number;
+  shadowFiendId: number|undefined;
 
   constructor(data: IActorData, friendly: boolean, anon = false) {
     this.id = data.id;
