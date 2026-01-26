@@ -1,12 +1,12 @@
 import { ICombatantData } from 'src/app/logs/interfaces';
 
 export class ActorStats {
-  intellect: number;
-  spirit: number;
-  stamina: number;
-  hasteRating: number;
-  critRating: number;
-  hitRating: number;
+  intellect!: number;
+  spirit!: number;
+  stamina!: number;
+  hasteRating!: number;
+  critRating!: number;
+  hitRating!: number;
 
   constructor(event?: ICombatantData) {
     if (event) {

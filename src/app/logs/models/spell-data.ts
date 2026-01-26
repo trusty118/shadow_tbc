@@ -11,26 +11,26 @@ export enum DamageType {
   AOE
 }
 
+export const SPELL_DEFAULTS: Partial<ISpellData> = {
+  rankIds: [],
+  damageIds: [],
+  baseCastTime: 0,
+  maxDamageInstances: 0,
+  maxDuration: 0,
+  maxTicks: 0,
+  baseTickTime: 0,
+  cooldown: 0,
+  gcd: true,
+  dotHaste: false,
+  statsByTick: false,
+  multiTarget: false,
+};
+
 function data(params: Partial<ISpellData> = {}): ISpellData {
-  return Object.assign({}, Spell.DEFAULTS, params) as ISpellData;
+  return Object.assign({}, SPELL_DEFAULTS, params) as ISpellData;
 }
 
 export class Spell {
-  public static readonly DEFAULTS: Partial<ISpellData> = {
-    rankIds: [],
-    damageIds: [],
-    baseCastTime: 0,
-    maxDamageInstances: 0,
-    maxDuration: 0,
-    maxTicks: 0,
-    baseTickTime: 0,
-    cooldown: 0,
-    gcd: true,
-    dotHaste: false,
-    statsByTick: false,
-    multiTarget: false,
-  };
-
   public static baseData(id: SpellId) {
     return Spell.dataBySpellId[id];
   }

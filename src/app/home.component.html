@@ -8,7 +8,7 @@
     <mat-card>
       <mat-card-content>
         <form class="report-form" [formGroup]="form">
-          <mat-form-field class="fill" appearance="standard">
+          <mat-form-field class="fill" appearance="outline">
             <mat-label>Enter WCL report ID or URL</mat-label>
             <input type="text"
                    formControlName="log"
@@ -16,38 +16,51 @@
                    value=""
                    (keydown.enter)="loadReport()"
                    matInput />
-            <mat-error *ngIf="log?.hasError('invalid')">
-              Enter a valid WCL report ID or URL
-            </mat-error>
-            <mat-error *ngIf="log?.hasError('wcl')">
-              {{log?.getError('wcl')}}
-            </mat-error>
-            <button *ngIf="log?.dirty && log?.valid && !searching"
-                    aria-label="Load Report"
-                    color="primary"
-                    (click)="loadReport()"
-                    matSuffix mat-icon-button>
-              <mat-icon>search</mat-icon>
-            </button>
-            <mat-spinner *ngIf="searching" matSuffix color="accent" diameter="16"></mat-spinner>
-            <mat-icon *ngIf="log?.pristine && summary" matSuffix color="primary">done</mat-icon>
+            @if (log?.hasError('invalid')) {
+              <mat-error>
+                Enter a valid WCL report ID or URL
+              </mat-error>
+            }
+            @if (log?.hasError('wcl')) {
+              <mat-error>
+                {{log?.getError('wcl')}}
+              </mat-error>
+            }
+            @if (log?.dirty && log?.valid && !searching) {
+              <button aria-label="Load Report"
+                      color="primary"
+                      (click)="loadReport()"
+                      matSuffix mat-icon-button>
+                <mat-icon>search</mat-icon>
+              </button>
+            }
+            @if (searching) {
+              <mat-spinner matSuffix color="accent" diameter="16"></mat-spinner>
+            }
+            @if (log?.pristine && summary) {
+              <mat-icon matSuffix color="primary">done</mat-icon>
+            }
           </mat-form-field>
 
-          <mat-form-field class="fill" appearance="standard">
+          <mat-form-field class="fill" appearance="outline">
             <mat-label>Select Player</mat-label>
             <mat-select #selectPlayer formControlName="player">
-              <mat-option *ngFor="let option of summary?.shadowPriests" [value]="option.id">
-                {{option.name}}
-              </mat-option>
+              @for (option of summary?.shadowPriests; track option.id) {
+                <mat-option [value]="option.id">
+                  {{option.name}}
+                </mat-option>
+              }
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field class="fill" appearance="standard">
+          <mat-form-field class="fill" appearance="outline">
             <mat-label>Select Encounter</mat-label>
             <mat-select #selectEncounter formControlName="encounter">
-              <mat-option *ngFor="let option of encounters" [value]="option.id">
-                {{option.description}}
-              </mat-option>
+              @for (option of encounters; track option.id) {
+                <mat-option [value]="option.id">
+                  {{option.description}}
+                </mat-option>
+              }
             </mat-select>
           </mat-form-field>
 
@@ -68,4 +81,3 @@
     </div>
   </div>
 </div>
-

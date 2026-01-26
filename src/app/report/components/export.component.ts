@@ -1,5 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -14,21 +19,29 @@ import { CombatantFaction } from 'src/app/logs/models/combatant-info';
 
 @Component({
   selector: 'export',
+  standalone: true,
+  imports: [
+    NgClass,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   templateUrl: './export.component.html',
   styleUrls: ['./export.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ExportComponent implements OnInit {
-  logId: string;
-  encounterId: number;
-  playerId: string;
-  analysis: PlayerAnalysis;
-  debuffs: IDebuffData[];
+  logId!: string;
+  encounterId!: number;
+  playerId!: string;
+  analysis!: PlayerAnalysis;
+  debuffs!: IDebuffData[];
   exportData: any;
   copied = false;
 
   @ViewChild('json')
-  jsonInput: ElementRef;
+  jsonInput!: ElementRef;
 
   constructor(private logs: LogsService,
               private router: Router,

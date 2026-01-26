@@ -7,8 +7,15 @@ import {
   OnInit, SimpleChanges,
   ViewChild
 } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
-import { MatButtonToggleChange, MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { NgClass } from '@angular/common';
+import { MatButtonToggleChange, MatButtonToggleGroup, MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { CastDetails } from 'src/app/report/models/cast-details';
 import { EventService } from 'src/app/event.service';
@@ -22,25 +29,37 @@ import { IBuffDetails } from 'src/app/logs/models/buff-data';
 
 @Component({
   selector: 'casts',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    RouterModule,
+    NgClass,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatExpansionModule,
+  ],
   templateUrl: './casts.component.html',
   styleUrls: ['./casts.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CastsComponent implements OnInit, OnChanges, AfterViewInit {
-  @Input() analysis: PlayerAnalysis;
-  @Input() spellId: SpellId;
-  @Input() highlight: StatHighlights;
-  @Input() hitCounts: number[];
-  @Input() casts: CastDetails[];
+  @Input() analysis!: PlayerAnalysis;
+  @Input() spellId!: SpellId;
+  @Input() highlight!: StatHighlights;
+  @Input() hitCounts!: number[];
+  @Input() casts!: CastDetails[];
 
-  @ViewChild(MatButtonToggleGroup) hasteToggle: MatButtonToggleGroup;
+  @ViewChild(MatButtonToggleGroup) hasteToggle!: MatButtonToggleGroup;
 
-  visibleCasts: CastDetails[];
+  visibleCasts!: CastDetails[];
   spellData: ISpellData|undefined;
   spellFilter = new UntypedFormControl();
   hitCount = new UntypedFormControl(-1);
   spells: { id: string; name: string }[] = [];
-  spellNames: { [id: string]: string };
+  spellNames!: { [id: string]: string };
   showHaste = false;
 
   format = StatUtils.format;
@@ -62,13 +81,13 @@ export class CastsComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.spellId) {
-      this.spellData = changes.spellId.currentValue === SpellId.NONE ?
+    if (changes['spellId']) {
+      this.spellData = changes['spellId'].currentValue === SpellId.NONE ?
         undefined :
-        Spell.baseData(changes.spellId.currentValue);
+        Spell.baseData(changes['spellId'].currentValue);
     }
 
-    if (changes.casts) {
+    if (changes['casts']) {
       if (this.spellId === SpellId.NONE) {
         this.spellNames = this.casts.reduce((lookup, cast) => {
           if (!lookup.hasOwnProperty(cast.spellId)) {

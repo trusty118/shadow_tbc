@@ -9,7 +9,7 @@ export class Report {
   casts: CastDetails[];
   spells: {[spellId: number]: SpellStats};
   targetIds: number[];
-  private _stats: CastStats;
+  private _stats!: CastStats;
 
   constructor(analysis: PlayerAnalysis, casts: CastDetails[]) {
     this.analysis = analysis;

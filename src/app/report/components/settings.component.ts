@@ -12,9 +12,11 @@ import { LogSummary } from 'src/app/logs/models/log-summary';
 import { LogsService } from 'src/app/logs/logs.service';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
 import { SpellId } from 'src/app/logs/models/spell-id.enum';
-import { MatError, MatFormField, MatHint, MatLabel } from "@angular/material/input";
-import { MatSlideToggle } from "@angular/material/slide-toggle";
-import { MatCheckbox } from "@angular/material/checkbox";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
   selector: 'report-settings',
@@ -24,12 +26,11 @@ import { MatCheckbox } from "@angular/material/checkbox";
   imports: [
     ReactiveFormsModule,
     RouterModule,
-    MatFormField,
-    MatHint,
-    MatLabel,
-    MatError,
-    MatSlideToggle,
-    MatCheckbox
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatButtonModule,
   ],
   encapsulation: ViewEncapsulation.None
 })

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
 
 import { EncounterSummary } from 'src/app/logs/models/encounter-summary';
@@ -15,6 +16,7 @@ import { NavigationType } from 'src/app/navigation-type.enum';
   standalone: true,
   imports: [
     MatSelectModule,
+    MatIconModule,
     RouterModule,
     ReactiveFormsModule,
   ],

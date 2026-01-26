@@ -22,9 +22,9 @@ export class PlayerAnalysis {
   public actor: Actor;
   public actorInfo: CombatantInfo;
   public settings: Settings;
-  public events: IEncounterEvents;
-  public report: Report;
-  public totalGcds: number;
+  public events!: IEncounterEvents;
+  public report!: Report;
+  public totalGcds!: number;
 
   private _rawStats: ActorStats;
   private _rawEvents: IEncounterEvents;

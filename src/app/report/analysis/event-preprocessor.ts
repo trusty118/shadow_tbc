@@ -15,9 +15,9 @@ export class EventPreprocessor {
   private inputEvents: IEncounterEvents;
   private actor: Actor;
 
-  private casts: wcl.ICastData[];
-  private damage: wcl.IDamageData[];
-  private buffs: wcl.IBuffData[];
+  private casts!: wcl.ICastData[];
+  private damage!: wcl.IDamageData[];
+  private buffs!: wcl.IBuffData[];
 
   private static readonly INFER_CASTS_EVENT_COUNT = 5;
 

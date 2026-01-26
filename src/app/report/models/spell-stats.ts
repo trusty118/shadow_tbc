@@ -23,7 +23,7 @@ export class SpellStats extends CastStats {
     this.hitCount = hitCount;
   }
 
-  addCast(cast: CastDetails) {
+  override addCast(cast: CastDetails) {
     super.addCast(cast);
 
     if (this.hitCount === undefined && this.spellData.statsByTick) {
@@ -46,7 +46,7 @@ export class SpellStats extends CastStats {
     return this._byHitCount[count];
   }
 
-  protected createTargetStats(targetId: number): SpellStats {
+  protected override createTargetStats(targetId: number): SpellStats {
     return new SpellStats(this.analysis, this.spellId, targetId, this.hitCount);
   }
 }

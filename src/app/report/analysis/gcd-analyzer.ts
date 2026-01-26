@@ -5,11 +5,11 @@ import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
 import { ActorStats } from 'src/app/logs/models/actor-stats';
 
 export class GcdAnalyzer {
-  private gcds: number;
-  private events: IBuffData[];
+  private gcds!: number;
+  private events!: IBuffData[];
   private buffs: IBuffEvent[] = [];
-  private stats: IHasteStats;
-  private baseStats: ActorStats;
+  private stats!: IHasteStats;
+  private baseStats!: ActorStats;
 
   constructor(private analysis: PlayerAnalysis) {
     this.events = analysis.events.buffs;

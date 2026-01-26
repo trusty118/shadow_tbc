@@ -1,9 +1,14 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { Location, NgClass } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -19,31 +24,45 @@ import { SpellId } from 'src/app/logs/models/spell-id.enum';
 import { CastDetails } from 'src/app/report/models/cast-details';
 import { SettingsService } from 'src/app/settings.service';
 import { SettingsHintComponent } from 'src/app/report/components/settings-hint.component';
+import { CastsComponent } from 'src/app/report/components/casts.component';
+import { SummaryComponent } from 'src/app/report/components/summary.component';
 import { Spell } from 'src/app/logs/models/spell-data';
 
 @Component({
   selector: 'report-details',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatTabsModule,
+    CastsComponent,
+    SummaryComponent,
+  ],
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReportDetailsComponent implements OnInit, OnDestroy {
-  logId: string;
-  encounterId: number;
-  playerId: string;
+  logId!: string;
+  encounterId!: number;
+  playerId!: string;
 
-  analysis: PlayerAnalysis;
-  highlight: StatHighlights;
+  analysis!: PlayerAnalysis;
+  highlight!: StatHighlights;
   activeTab = 0;
-  form: UntypedFormGroup;
-  targets: { id: number; name: string }[];
-  downranked: IDownrankedSpell[];
+  form!: UntypedFormGroup;
+  targets!: { id: number; name: string }[];
+  downranked!: IDownrankedSpell[];
   hitCount = -1;
   loading = true;
   showDownrankWarning = false;
-  tabs: ITab[];
+  tabs!: ITab[];
 
-  private snackBarRef: MatSnackBarRef<SettingsHintComponent>;
+  private snackBarRef!: MatSnackBarRef<SettingsHintComponent>;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private location: Location,

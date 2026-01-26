@@ -21,7 +21,7 @@ export class CastDetails {
   targetId: number;
   targetInstance: number;
   allTargets: number[] = [];
-  hitType: HitType;
+  hitType!: HitType;
   instances: DamageInstance[] = [];
   buffs: IBuffDetails[] = [];
   totalDamage = 0;
@@ -59,8 +59,8 @@ export class CastDetails {
   gcd = 0;
   haste = 0;
 
-  private _summaryBuffs: IBuffDetails[];
-  private _detailBuffs: IBuffDetails[];
+  private _summaryBuffs!: IBuffDetails[];
+  private _detailBuffs!: IBuffDetails[];
 
   constructor(params: ICastDetailsParams) {
     this.castId = params.castId;
@@ -188,7 +188,7 @@ export class CastDetails {
           this.hitType = HitType.NONE;
         }
       } else {
-        this.hitType = types.values().next().value;
+        this.hitType = types.values().next().value!;
       }
     }
 

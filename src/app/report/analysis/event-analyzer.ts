@@ -21,13 +21,13 @@ export class EventAnalyzer {
 
   private analysis: PlayerAnalysis;
 
-  private baseStats: ActorStats;
-  private buffData: IBuffData[];
-  private castData: ICastData[];
-  private damageData: IDamageData[];
-  private deaths: IDeathLookup;
-  private damageBySpell: {[spellId: number]: IDamageData[]};
-  private events: IEventData[];
+  private baseStats!: ActorStats;
+  private buffData!: IBuffData[];
+  private castData!: ICastData[];
+  private damageData!: IDamageData[];
+  private deaths!: IDeathLookup;
+  private damageBySpell!: {[spellId: number]: IDamageData[]};
+  private events!: IEventData[];
 
   // tracks currently active buffs
   private buffs: IBuffEvent[] = [];

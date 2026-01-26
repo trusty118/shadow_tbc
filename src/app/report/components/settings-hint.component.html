@@ -1,9 +1,12 @@
 <div class="settings-hint">
-  <span class="message" *ngIf="!!missingHaste">Detected {{description}} haste: {{missingHaste}}</span>
-  <span class="message" *ngIf="missingHaste === undefined">Missing gear haste rating.</span>
+  @if (!!missingHaste) {
+    <span class="message">Detected {{description}} haste: {{missingHaste}}</span>
+  }
+  @if (missingHaste === undefined) {
+    <span class="message">Missing gear haste rating.</span>
+  }
   <span class="actions">
     <a href="#" (click)="openSettings($event)">Update Settings</a>
     <a href="#" (click)="dismiss($event)">Dismiss</a>
   </span>
 </div>
-

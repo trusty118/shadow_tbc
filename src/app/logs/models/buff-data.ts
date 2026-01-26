@@ -9,24 +9,24 @@ export enum BuffTrigger {
   EXTERNAL
 }
 
+export const BUFF_DEFAULTS: Partial<IBuffDetails> = {
+  haste: 0,
+  hasteRating: 0,
+  stack: 0,
+  maxStack: 0,
+  trigger: BuffTrigger.EXTERNAL,
+  doesNotStackWith: [],
+  summaryIcon: false,
+  detailsIcon: true,
+  debuff: false,
+  infer: false
+};
+
 function buff(params: Partial<IBuffDetails> = {}) {
-  return Object.assign({}, Buff.DEFAULTS, params) as IBuffDetails;
+  return Object.assign({}, BUFF_DEFAULTS, params) as IBuffDetails;
 }
 
 export class Buff {
-  public static DEFAULTS: Partial<IBuffDetails> = {
-    haste: 0,
-    hasteRating: 0,
-    stack: 0,
-    maxStack: 0,
-    trigger: BuffTrigger.EXTERNAL,
-    doesNotStackWith: [],
-    summaryIcon: false,
-    detailsIcon: true,
-    debuff: false,
-    infer: false
-  };
-
   public static get(data: IEventData, settings: Settings): IBuffDetails {
     const baseData = Buff.data[data.ability.guid];
     const dynamic = baseData.dynamic ? baseData.dynamic.call(null, baseData, data, settings) : {};

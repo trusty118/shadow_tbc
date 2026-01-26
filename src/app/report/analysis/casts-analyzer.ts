@@ -17,7 +17,7 @@ export class CastsAnalyzer {
 
   private analysis: PlayerAnalysis;
   private casts: CastDetails[];
-  private inferred: { [auraId: number]: IBuffDetails };
+  private inferred!: { [auraId: number]: IBuffDetails };
 
   constructor(analysis: PlayerAnalysis, casts: CastDetails[]) {
     this.analysis = analysis;

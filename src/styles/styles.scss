@@ -1,11 +1,11 @@
-@use 'node_modules/@angular/material/index' as mat;
+@use '@angular/material' as mat;
 
 @include mat.core();
 
-$primary: mat.define-palette(mat.$indigo-palette, 200);
-$accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$primary: mat.m2-define-palette(mat.$m2-indigo-palette, 200);
+$accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
 
-$theme: mat.define-dark-theme((
+$theme: mat.m2-define-dark-theme((
   color: (
     primary: $primary,
     accent: $accent,
@@ -34,7 +34,7 @@ html, body {
 }
 
 body {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'background');
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'background');
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -55,7 +55,7 @@ h4 {
 }
 
 .tooltip {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'background');
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'background');
   padding: 4px 8px;
   font-size: 0.8em;
 }
@@ -75,17 +75,17 @@ form mat-form-field {
 }
 
 .mat-button-toggle > button {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'raised-button');
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'raised-button');
 }
 
 .mat-button-toggle:hover > button {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'focused-button');
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'focused-button');
 }
 
 .mat-button-toggle-checked > button,
 .mat-button-toggle-checked:hover > button {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'selected-button');
-  color: mat.get-color-from-palette(mat.$indigo-palette, 200);
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'selected-button');
+  color: mat.m2-get-color-from-palette(mat.$m2-indigo-palette, 200);
 }
 
 .logo {
@@ -96,11 +96,11 @@ form mat-form-field {
 }
 
 .app-bar {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'app-bar');
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'app-bar');
 }
 
 .text-primary {
-  color: mat.get-color-from-palette(mat.$indigo-palette, 300);
+  color: mat.m2-get-color-from-palette(mat.$m2-indigo-palette, 300);
 }
 
 .text-subdued {
@@ -108,15 +108,15 @@ form mat-form-field {
 }
 
 .table-accent {
-  color: mat.get-color-from-palette(mat.$indigo-palette, 200);
+  color: mat.m2-get-color-from-palette(mat.$m2-indigo-palette, 200);
 }
 
 .spell-accent {
-  color: mat.get-color-from-palette(mat.$pink-palette, 100);
+  color: mat.m2-get-color-from-palette(mat.$m2-pink-palette, 100);
 }
 
 .spell-accent.crit {
-  color: mat.get-color-from-palette(mat.$pink-palette, 300);
+  color: mat.m2-get-color-from-palette(mat.$m2-pink-palette, 300);
 }
 
 .warning {
@@ -136,20 +136,20 @@ form mat-form-field {
 }
 
 a {
-  color: mat.get-color-from-palette(mat.$indigo-palette, 200);
+  color: mat.m2-get-color-from-palette(mat.$m2-indigo-palette, 200);
 }
 
 .snackbar {
-  background-color: mat.get-color-from-palette(mat.$dark-theme-background-palette, 'app-bar');
-  color: mat.get-color-from-palette(mat.$indigo-palette, 100);
+  background-color: mat.m2-get-color-from-palette(mat.$m2-dark-theme-background-palette, 'app-bar');
+  color: mat.m2-get-color-from-palette(mat.$m2-indigo-palette, 100);
 }
 
 //
 // Mobile styles
 //
-@import 'src/styles/mobile';
+@import './mobile';
 
 //
 // Spell icons
 //
-@import 'src/styles/icons';
+@import './icons';

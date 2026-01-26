@@ -1,5 +1,5 @@
 <section class="summary">
-  @for (field of fields; track field.id) {
+  @for (field of fields; track $index) {
     <ng-container>
       @if (field.break) {
         <div class="break"></div>

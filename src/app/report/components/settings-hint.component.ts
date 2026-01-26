@@ -4,12 +4,13 @@ import { format } from 'src/app/report/models/stat-utils';
 
 @Component({
   selector: 'settings-hint-snackbar',
+  standalone: true,
   templateUrl: './settings-hint.component.html',
   styleUrls: ['./settings-hint.component.scss']
 })
 export class SettingsHintComponent {
-  public missingHaste: string;
-  public description: string;
+  public missingHaste!: string;
+  public description!: string;
 
   private close: () => void;
   private callback: () => void;
