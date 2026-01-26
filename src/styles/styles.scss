@@ -1,4 +1,6 @@
 @use '@angular/material' as mat;
+@use './mobile';
+@use './icons';
 
 @include mat.core();
 
@@ -144,12 +146,3 @@ a {
   color: mat.m2-get-color-from-palette(mat.$m2-indigo-palette, 100);
 }
 
-//
-// Mobile styles
-//
-@import './mobile';
-
-//
-// Spell icons
-//
-@import './icons';

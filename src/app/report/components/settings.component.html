@@ -53,10 +53,10 @@
 
       <div class="slide-toggle">
         <mat-slide-toggle color="primary" formControlName="t9bonus2pc">T9 2pc Bonus</mat-slide-toggle>
-        @if (analysis.actorInfo?.initFromLog) {
+        @if (analysis.actorInfo.initFromLog) {
           <p class="mat-hint table-accent">Found from combatant info.</p>
         }
-        @if (!analysis.actorInfo?.initFromLog) {
+        @if (!analysis.actorInfo.initFromLog) {
           <p class="mat-hint table-accent">Adds 2 additional ticks to Vampiric Touch.</p>
         }
       </div>
@@ -64,10 +64,10 @@
       <h4>Auras</h4>
       <div class="aura-checkboxes">
         <mat-checkbox color="primary" class="aura" formControlName="moonkinAura">Moonkin/Ret Aura</mat-checkbox>
-        @if (analysis.actorInfo?.initFromLog) {
+        @if (analysis.actorInfo.initFromLog) {
           <p class="mat-hint table-accent">Auras set from log.</p>
         }
-        @if (!analysis.actorInfo?.initFromLog) {
+        @if (!analysis.actorInfo.initFromLog) {
           <p class="mat-hint table-accent">Data missing from log. Enable to assume haste aura present pre-fight.</p>
         }
       </div>
