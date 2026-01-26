@@ -10,16 +10,17 @@ import { EncounterSummary } from 'src/app/logs/models/encounter-summary';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('selectEncounter') public encounterSelect: MatSelect;
-  @ViewChild('selectPlayer') public playerSelect: MatSelect;
+  @ViewChild('selectEncounter') public encounterSelect!: MatSelect;
+  @ViewChild('selectPlayer') public playerSelect!: MatSelect;
   public summary: LogSummary|undefined;
   public form: UntypedFormGroup;
   public searching = false;
-  public encounters: EncounterSummary[];
+  public encounters!: EncounterSummary[];
 
   private logId?: string;
 

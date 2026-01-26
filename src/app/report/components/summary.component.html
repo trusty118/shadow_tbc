@@ -1,9 +1,16 @@
 <section class="summary">
-  <ng-container *ngFor="let field of fields">
-    <div class="break" *ngIf="field.break"></div>
-    <div *ngIf="!field.break">
-      {{ field.label! }}:
-      <span [ngClass]="field.highlight!">{{ field.value! }}</span>
-    </div>
-  </ng-container>
+  @for (field of fields; track field.id) {
+    <ng-container>
+      @if (field.break) {
+        <div class="break"></div>
+      }
+
+      @if (!field.break) {
+        <div>
+        {{ field.label! }}:
+          <span [ngClass]="field.highlight!">{{ field.value! }}</span>
+        </div>
+      }
+    </ng-container>
+  }
 </section>

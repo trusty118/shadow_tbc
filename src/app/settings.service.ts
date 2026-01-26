@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Settings } from 'src/app/settings';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class SettingsService {
   public get(playerName: string) {
     const stored = localStorage.getItem(this.key(playerName));

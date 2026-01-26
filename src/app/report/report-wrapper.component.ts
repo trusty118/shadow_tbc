@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { MatSelect } from '@angular/material/select';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
 
 import { EncounterSummary } from 'src/app/logs/models/encounter-summary';
@@ -12,19 +12,25 @@ import { NavigationType } from 'src/app/navigation-type.enum';
 
 @Component({
   selector: 'report',
+  standalone: true,
+  imports: [
+    MatSelectModule,
+    RouterModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './report-wrapper.component.html',
   styleUrls: ['./report-wrapper.component.scss']
 })
 export class ReportWrapperComponent implements OnInit {
-  @ViewChild('selectEncounter') public encounterSelect: MatSelect;
-  @ViewChild('selectPlayer') public playerSelect: MatSelect;
+  @ViewChild('selectEncounter') public encounterSelect!: MatSelect;
+  @ViewChild('selectPlayer') public playerSelect!: MatSelect;
 
-  logId: string;
-  encounterId: number;
-  encounters: EncounterSummary[];
-  playerId: string;
-  form: UntypedFormGroup;
-  log: LogSummary;
+  logId!: string;
+  encounterId!: number;
+  encounters!: EncounterSummary[];
+  playerId!: string;
+  form!: UntypedFormGroup;
+  log!: LogSummary;
 
   constructor(private router: Router,
               private route: ActivatedRoute,

@@ -4,7 +4,7 @@ import { Params } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { Tab } from 'src/app/report/components/tabs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ParamsService {
   constructor(private location: Location) {}
 

@@ -1,32 +1,46 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 
 import { AuraId } from 'src/app/logs/models/aura-id.enum';
 import { ParamsService } from 'src/app/params.service';
 import { SettingsService } from 'src/app/settings.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ISettings, Settings } from 'src/app/settings';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
 import { LogSummary } from 'src/app/logs/models/log-summary';
 import { LogsService } from 'src/app/logs/logs.service';
 import { PlayerAnalysis } from 'src/app/report/models/player-analysis';
 import { SpellId } from 'src/app/logs/models/spell-id.enum';
+import { MatError, MatFormField, MatHint, MatLabel } from "@angular/material/input";
+import { MatSlideToggle } from "@angular/material/slide-toggle";
+import { MatCheckbox } from "@angular/material/checkbox";
 
 @Component({
   selector: 'report-settings',
+  standalone: true,
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
+  imports: [
+    ReactiveFormsModule,
+    RouterModule,
+    MatFormField,
+    MatHint,
+    MatLabel,
+    MatError,
+    MatSlideToggle,
+    MatCheckbox
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class SettingsComponent implements OnInit {
-  logId: string;
-  encounterId: number;
-  playerId: string;
+  logId!: string;
+  encounterId!: number;
+  playerId!: string;
 
-  analysis: PlayerAnalysis;
-  logHasteRating: number|null;
-  form: FormGroup<ISettingsForm>;
+  analysis!: PlayerAnalysis;
+  logHasteRating!: number|null;
+  form!: FormGroup<ISettingsForm>;
 
   constructor(private logs: LogsService,
               private router: Router,

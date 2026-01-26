@@ -16,7 +16,7 @@ import { SettingsService } from 'src/app/settings.service';
 
 import * as wcl from 'src/app/logs/interfaces';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LogsService {
   private static API_KEY = '259b121232ec91e17f4d2b48300801be';
   private static API_URL = 'https://classic.warcraftlogs.com/v1';
