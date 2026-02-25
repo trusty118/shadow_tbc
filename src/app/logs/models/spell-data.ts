@@ -123,16 +123,6 @@ export class Spell {
       damageType: DamageType.NONE
     }),
 
-    [SpellId.DISPERSION]: data({
-      damageType: DamageType.NONE,
-      gcd: true
-    }),
-
-    [SpellId.DIVINE_HYMN]: data({
-      damageType: DamageType.NONE,
-      gcd: true
-    }),
-
     [SpellId.FADE]: data({
       damageType: DamageType.NONE,
       maxDuration: 10,
@@ -166,11 +156,6 @@ export class Spell {
       maxRank: 7,
       maxDamageInstances: 20,
       gcd: true,
-    }),
-
-    [SpellId.HYMN_OF_HOPE]: data({
-      damageType: DamageType.NONE,
-      gcd: true
     }),
 
     [SpellId.MASS_DISPEL]: data({

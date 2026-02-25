@@ -18,7 +18,7 @@ import * as wcl from 'src/app/logs/interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class LogsService {
-  private static API_KEY = '259b121232ec91e17f4d2b48300801be';
+  private static API_KEY = '5a7788c14973d8998878621704f49840';
   private static API_URL = 'https://classic.warcraftlogs.com/v1';
   private static MAX_EVENT_REQUESTS = 10;
 

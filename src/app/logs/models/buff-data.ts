@@ -61,20 +61,10 @@ export class Buff {
   }
 
   public static data: IBuffLookup = {
-    [AuraId.ARGENT_VALOR]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
 
     [AuraId.BERSERKING]: buff({
       haste: 0.2,
       trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.BLACK_MAGIC]: buff({
-      hasteRating: 250,
-      trigger: BuffTrigger.EXTERNAL,
       summaryIcon: true
     }),
 
@@ -85,45 +75,14 @@ export class Buff {
       summaryIcon: true
     }),
 
-    [AuraId.DEMONIC_PACT]: buff({
-      detailsIcon: false
-    }),
-
-    [AuraId.DEVIOUS_MIND]: buff({
-      trigger: BuffTrigger.CAST_END,
-      summaryIcon: true,
-      hasteRating: 240
-    }),
-
     [AuraId.DRUMS_OF_BATTLE]: buff({
       hasteRating: 80,
       trigger: BuffTrigger.EXTERNAL,
       summaryIcon: true
     }),
 
-    [AuraId.DYING_CURSE]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.EMBRACE_SPIDER]: buff({
-      hasteRating: 505,
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
     [AuraId.GREATER_DRUMS_OF_BATTLE]: buff({
       hasteRating: 80,
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.FLAME_OF_THE_HEAVENS]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.FORGE_EMBER]: buff({
       trigger: BuffTrigger.EXTERNAL,
       summaryIcon: true
     }),
@@ -141,23 +100,7 @@ export class Buff {
       summaryIcon: true
     }),
 
-    [AuraId.HYPERSPEED_ACCELERATION]: buff({
-      hasteRating: 340,
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
     [AuraId.INNER_FOCUS]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.LIGHTWEAVE]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.LIVING_FLAME]: buff({
       trigger: BuffTrigger.ON_USE,
       summaryIcon: true
     }),
@@ -168,11 +111,6 @@ export class Buff {
       dynamic: (baseData, event, settings) => ({
         haste: settings.improvedMoonkinAura ? 0.03 : 0
       })
-    }),
-
-    [AuraId.PANDORAS_PLEA]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
     }),
 
     [AuraId.POWER_INFUSION]: buff({
@@ -190,81 +128,6 @@ export class Buff {
       })
     }),
 
-    [AuraId.RUNE_OF_POWER]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      debuff: true,
-      summaryIcon: true
-    }),
-
-    [AuraId.SCALE_OF_FATES]: buff({
-      trigger: BuffTrigger.ON_USE,
-      hasteRating: 457,
-      summaryIcon: true
-    }),
-
-    [AuraId.SHADOWY_INSIGHT]: buff({
-      trigger: BuffTrigger.EXTERNAL
-    }),
-
-    [AuraId.SHADOW_CRASH]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      debuff: true,
-      haste: 1,
-      summaryIcon: true
-    }),
-
-    [AuraId.SLAG_IMBUED]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      haste: 1,
-      debuff: true,
-      summaryIcon: true
-    }),
-
-    [AuraId.SPEED_POTION]: buff({
-      hasteRating: 500,
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.STARLIGHT]: buff({
-      name: 'Starlight',
-      trigger: BuffTrigger.EXTERNAL,
-      debuff: true,
-      haste: 0.5,
-      summaryIcon: true,
-      infer: (analysis) => analysis.encounter.boss === 751, // Hodir
-      inferenceThresholds: {
-        add: 0.4,
-        remove: 0.3
-      }
-    }),
-
-    [AuraId.SUNDIAL]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.TOME_ARCANE_PHENOMENA]: buff({
-      hasteRating: 256,
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.TWILIGHT_SERPENT]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.WAR_PRISONER]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
-    [AuraId.WILD_MAGIC]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true
-    }),
-
     [AuraId.WRATH_OF_AIR]: buff({
       haste: 0.05,
       trigger: BuffTrigger.EXTERNAL,
@@ -274,34 +137,6 @@ export class Buff {
         add: .035,
         remove: .025
       }
-    }),
-
-    [AuraId.ABYSSAL_RUNE]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      summaryIcon: true
-    }),
-
-    [AuraId.SHARD_CRYSTAL_HEART]: buff({
-      trigger: BuffTrigger.ON_USE,
-      summaryIcon: true,
-      hasteRating: 512
-    }),
-
-    [AuraId.DRAGON_SOUL]: buff({
-      trigger: BuffTrigger.CAST_END,
-      maxStack: 10
-    }),
-
-    [AuraId.VOLATILE_POWER]: buff({
-      trigger: BuffTrigger.CAST_END,
-      maxStack: 8,
-      hasteRating: 57
-    }),
-
-    [AuraId.VOLATILE_POWER_HEROIC]: buff({
-      trigger: BuffTrigger.CAST_END,
-      maxStack: 8,
-      hasteRating: 64
     })
   }
 }

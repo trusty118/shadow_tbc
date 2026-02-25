@@ -93,27 +93,19 @@ export class ExportComponent implements OnInit {
         divineSpirit: true,
         giftOfTheWild: this.auraState(AuraId.GIFT_OF_THE_WILD, 'TristateEffectImproved'),
         arcaneBrilliance: this.haveClass('Mage'), // not sure why this isn't in combatant info auras?
-        abominationsMight: this.haveClass('DeathKnight'),
         leaderOfThePack: this.auraState(AuraId.LEADER_OF_THE_PACK, 'TristateEffectImproved'),
         totemOfWrath: this.haveClass('Shaman-Elemental'),
-        demonicPact: this.haveBuff(AuraId.DEMONIC_PACT) ? 4000 : undefined,
         moonkinAura: this.auraState(
           AuraId.MOONKIN_AURA,
           settings.improvedMoonkinAura ? 'TristateEffectImproved' : 'TristateEffectRegular'
         ),
-        elementalOath: this.haveClass('Shaman-Elemental'),
         wrathOfAirTotem: this.analysis.applyWrathOfAir,
-        sanctifiedRetribution: this.haveClass('Paladin-Retribution'),
-        arcaneEmpowerment: this.haveClass('Mage'),
         manaSpringTotem: 'TristateEffectImproved',
         bloodlust: this.haveBuff(AuraId.BLOODLUST) || this.haveBuff(AuraId.HEROISM)
       },
       debuffs: {
         misery: true,
         judgementOfWisdom: this.haveDebuff(AuraId.JUDGEMENT_OF_WISDOM),
-        ebonPlaguebringer: this.haveDebuff(AuraId.EBON_PLAGUE),
-        earthAndMoon: this.haveDebuff(AuraId.EARTH_AND_MOON),
-        heartOfTheCrusader: this.haveClass('Paladin-Retribution'),
         shadowMastery: this.haveDebuff(AuraId.SHADOW_MASTERY)
       },
       partyBuffs: {
@@ -125,8 +117,8 @@ export class ExportComponent implements OnInit {
         class: 'ClassPriest',
         equipment: { items },
         consumes: {
-          flask: 'FlaskOfTheFrostWyrm',
-          food: 'FoodFishFeast',
+          flask: 'FlaskOfPureDeath',
+          food: 'BlackenedBasilisk',
           defaultPotion: this.combatPotion,
           prepopPotion: this.preCombatPotion
         },
@@ -137,14 +129,6 @@ export class ExportComponent implements OnInit {
           vampiricTouch: true
         },
         talentsString: '05032031--325023051223010323151301351',
-        glyphs: {
-          major1: 42407,
-          major2: 42415,
-          major3: 45753,
-          minor1: 43371,
-          minor2: 43372,
-          minor3: 43374
-        },
         profession1: professions[0],
         profession2: professions.length > 1 ? professions[1] : undefined,
         cooldowns: this.cooldowns(),
@@ -187,28 +171,18 @@ export class ExportComponent implements OnInit {
   }
 
   get preCombatPotion() {
-    if (this.auraState(AuraId.WILD_MAGIC)) {
-      return 'PotionOfWildMagic';
-    }
-
-    if (this.auraState(AuraId.SPEED_POTION)) {
-      return 'PotionOfSpeed';
+    if (this.auraState(AuraId.DESTRUCTION)) {
+      return 'DestructionPotion';
     }
 
     return undefined;
   }
 
   get combatPotion() {
-    const wildMagic = this.analysis.events.buffs.find((b) =>
-      b.ability.guid === AuraId.WILD_MAGIC && b.type === 'applybuff' && b.timestamp > this.analysis.encounter.start);
-    if (wildMagic) {
-      return 'PotionOfWildMagic';
-    }
-
-    const speed = this.analysis.events.buffs.find((b) =>
-      b.ability.guid === AuraId.SPEED_POTION && b.type === 'applybuff' && b.timestamp > this.analysis.encounter.start);
-    if (speed) {
-      return 'PotionOfSpeed';
+    const destruction = this.analysis.events.buffs.find((b) =>
+      b.ability.guid === AuraId.DESTRUCTION && b.type === 'applybuff' && b.timestamp > this.analysis.encounter.start);
+    if (destruction) {
+      return 'DestructionPotion';
     }
 
     return undefined;
@@ -227,20 +201,9 @@ export class ExportComponent implements OnInit {
   findPlayerProfessions(items: ISimItem[]) {
     let professions: string[] = [];
 
-    // Engineering - Hyperspeed
-    if (this.haveBuff(AuraId.HYPERSPEED_ACCELERATION)) {
-      professions.push('Engineering');
-    }
-
-    // Tailoring - lightweave procs
-    if (this.haveBuff(AuraId.LIGHTWEAVE)) {
-      professions.push('Tailoring');
-    }
-
     // JC - gems
     const jcGems = [
-      42144, // runed dragon's eye
-      42148, // brilliant dragon's eye
+      33133, // Don Julio's Heart
     ];
     const foundJc = items.some((item) => {
       if (!item.gems) {
