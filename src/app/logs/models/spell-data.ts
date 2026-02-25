@@ -86,11 +86,9 @@ export class Spell {
 
     [SpellId.DEATH]: data({
       rankIds: {
-        [32379]: 1,
-        [32996]: 2,
-        [48157]: 3
+        [32379]: 1
       },
-      maxRank: 4,
+      maxRank: 2,
       damageType: DamageType.DIRECT,
       maxDamageInstances: 1,
       cooldown: 12
@@ -105,11 +103,9 @@ export class Spell {
 
     [SpellId.DEVOURING_PLAGUE]: data({
       rankIds: {
-        [19280]: 6,
-        [25467]: 7,
-        [48299]: 8
+        [19280]: 6
       },
-      maxRank: 9,
+      maxRank: 7,
       damageIds: [SpellId.IMPROVED_DEVOURING_PLAGUE],
       damageType: DamageType.DOT,
       dotHaste: true,
@@ -165,11 +161,9 @@ export class Spell {
     [SpellId.HOLY_NOVA]: data({
       damageType: DamageType.AOE,
       rankIds: {
-        [27801]: 6,
-        [25331]: 7,
-        [48077]: 8
+        [27801]: 6
       },
-      maxRank: 9,
+      maxRank: 7,
       maxDamageInstances: 20,
       gcd: true,
     }),
@@ -190,11 +184,9 @@ export class Spell {
 
     [SpellId.MIND_BLAST]: data({
       rankIds: {
-        [25372]: 10,
-        [25375]: 11,
-        [48126]: 12
+        [25372]: 10
       },
-      maxRank: 13,
+      maxRank: 11,
       damageType: DamageType.DIRECT,
       baseCastTime: 1.5,
       maxDamageInstances: 1,
@@ -206,11 +198,10 @@ export class Spell {
 
     [SpellId.MIND_FLAY]: data({
       rankIds: {
-        [18807]: 6,
-        [25387]: 7,
-        [48155]: 8
+        [17314]: 5,
+        [18807]: 6
       },
-      maxRank: 9,
+      maxRank: 7,
       damageIds: [SpellId.MIND_FLAY_TICK],
       damageType: DamageType.CHANNEL,
       maxDamageInstances: 3,
@@ -220,27 +211,12 @@ export class Spell {
       statsByTick: true
     }),
 
-    [SpellId.MIND_SEAR]: data({
-      rankIds: {
-        [48045]: 1
-      },
-      maxRank: 2,
-      damageIds: [SpellId.MIND_SEAR_TICK],
-      damageType: DamageType.CHANNEL,
-      maxDamageInstances: 0,
-      maxDuration: 5,
-      maxTicks: 5,
-      baseTickTime: 1,
-      multiTarget: true,
-    }),
-
     [SpellId.PAIN]: data({
       rankIds: {
-        [25367]: 9,
-        [25368]: 10,
-        [48124]: 11
+        [10894]: 8,
+        [25367]: 9
       },
-      maxRank: 12,
+      maxRank: 10,
       damageType: DamageType.DOT,
       baseTickTime: 3,
       dotHaste: false
@@ -254,11 +230,11 @@ export class Spell {
 
     [SpellId.SHIELD]: data({
       rankIds: {
-        [25217]: 11,
-        [25218]: 12,
-        [48065]: 13
+        [10900]: 9,
+        [10901]: 10,
+        [25217]: 11
       },
-      maxRank: 14,
+      maxRank: 12,
       damageType: DamageType.NONE,
       maxDuration: 30,
       cooldown: 4
@@ -276,11 +252,10 @@ export class Spell {
 
     [SpellId.VAMPIRIC_TOUCH]: data({
       rankIds: {
-        [34916]: 2,
-        [34917]: 3,
-        [48159]: 4
+        [34914]: 1,
+        [34916]: 2
       },
-      maxRank: 5,
+      maxRank: 3,
       damageType: DamageType.DOT,
       dotHaste: true,
       baseCastTime: 1.5,
