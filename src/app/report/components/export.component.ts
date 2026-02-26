@@ -84,32 +84,29 @@ export class ExportComponent implements OnInit {
 
     const data = {
       settings: {
-        iterations: 5000,
-        showDamageMetrics: true,
-        faction: this.analysis.actorInfo.faction
+        iterations: 10000,
+        phase: 4,
+        faction: this.analysis.actorInfo.faction === CombatantFaction.ALLIANCE ? 'Alliance' : 'Horde'
       },
       raidBuffs: {
         powerWordFortitude: 'TristateEffectImproved',
-        divineSpirit: true,
-        giftOfTheWild: this.auraState(AuraId.GIFT_OF_THE_WILD, 'TristateEffectImproved'),
+        divineSpirit: 'TristateEffectImproved',
+        giftOfTheWild: this.auraState(AuraId.GIFT_OF_THE_WILD, 'TristateEffectRegular'),
         arcaneBrilliance: this.haveClass('Mage'), // not sure why this isn't in combatant info auras?
-        leaderOfThePack: this.auraState(AuraId.LEADER_OF_THE_PACK, 'TristateEffectImproved'),
-        totemOfWrath: this.haveClass('Shaman-Elemental'),
-        moonkinAura: this.auraState(
-          AuraId.MOONKIN_AURA,
-          settings.improvedMoonkinAura ? 'TristateEffectImproved' : 'TristateEffectRegular'
-        ),
-        wrathOfAirTotem: this.analysis.applyWrathOfAir,
-        manaSpringTotem: 'TristateEffectImproved',
-        bloodlust: this.haveBuff(AuraId.BLOODLUST) || this.haveBuff(AuraId.HEROISM)
       },
       debuffs: {
-        misery: true,
         judgementOfWisdom: this.haveDebuff(AuraId.JUDGEMENT_OF_WISDOM),
-        shadowMastery: this.haveDebuff(AuraId.SHADOW_MASTERY)
+        improvedSealOfTheCrusader: true,
+        misery: true,
+        curseOfElements: 'TristateEffectRegular',
+        isbUptime: 0.4
       },
       partyBuffs: {
-        heroicPresence: this.auraState(AuraId.HEROIC_PRESENCE)
+        bloodlust: (this.haveBuff(AuraId.BLOODLUST) || this.haveBuff(AuraId.HEROISM)) ? 1 : 0,
+        draeneiRacialCaster: this.auraState(AuraId.HEROIC_PRESENCE),
+        manaSpringTotem: 'TristateEffectRegular',
+        manaTideTotems: 1,
+        wrathOfAirTotem: 'TristateEffectRegular'
       },
       player: {
         name: 'Player',
@@ -118,39 +115,46 @@ export class ExportComponent implements OnInit {
         equipment: { items },
         consumes: {
           flask: 'FlaskOfPureDeath',
-          food: 'BlackenedBasilisk',
+          mainHandImbue: 'WeaponImbueSuperiorWizardOil',
+          food: 'FoodBlackenedBasilisk',
           defaultPotion: this.combatPotion,
           prepopPotion: this.preCombatPotion
         },
         buffs: {
-          blessingOfKings: this.auraState(AuraId.BLESSING_OF_KINGS),
+          blessingOfKings: this.haveBuff(AuraId.BLESSING_OF_KINGS),
+          blessingOfSalvation: true,
           blessingOfWisdom: 'TristateEffectImproved',
-          powerInfusions: this.countPowerInfusions(),
-          vampiricTouch: true
+          powerInfusions: this.countPowerInfusions()
         },
-        talentsString: '05032031--325023051223010323151301351',
-        profession1: professions[0],
-        profession2: professions.length > 1 ? professions[1] : undefined,
+        talentsString: '500230013--503250510240103051451',
         cooldowns: this.cooldowns(),
         healingModel: {},
         shadowPriest: {
           rotation: {
             rotationType: 'Ideal',
-            latency: Math.round((this.analysis.report.getSpellStats(SpellId.MIND_FLAY)?.avgNextCastLatency || 0.2) * 1000)
+            precastVt: true,
+            latency: Math.round((this.analysis.report.getSpellStats(SpellId.MIND_FLAY)?.avgNextCastLatency || 0.18) * 1000)
           },
           talents: {},
           options: {
-            useShadowfiend: true,
-            armor: 'InnerFire',
-            useMindBlast: true,
-            useShadowWordDeath: true
+            useShadowfiend: true
           }
         }
       },
       encounter: {
         duration: this.analysis.encounter.durationSeconds,
-        durationVariation: Math.round(this.analysis.encounter.durationSeconds / 10)
-      },
+        durationVariation: Math.round(this.analysis.encounter.durationSeconds / 10),
+        executeProportion: 0.2,
+        targets: [
+          {
+            level: 73,
+            minBaseDamage: 10000,
+            swingSpeed: 2,
+            canCrush: true,
+            parryHaste: true
+          }
+        ]
+      }
     };
 
     this.exportData = this.compact(data);

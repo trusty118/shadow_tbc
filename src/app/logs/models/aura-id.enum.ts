@@ -24,7 +24,6 @@ export enum AuraId {
   POWER_INFUSION = 10060,
   QUAGS_EYE = 33370,
   RETRIBUTION_AURA = 27150,
-  WRATH_OF_AIR = 3738,
 
   // Enemy debuffs
   JUDGEMENT_OF_WISDOM = 27164,

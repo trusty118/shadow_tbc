@@ -1,4 +1,4 @@
-@if (!!exportData) {
+@if (true) {
   <section class="export">
     <div class="header">
       <h3>Sim Export</h3>
@@ -13,9 +13,9 @@
     </div>
 
     <mat-form-field appearance="outline">
-      <textarea matInput rows="30" #json>{{ exportJson }}</textarea>
+      <textarea matInput rows="30" #json [value]="exportJson"></textarea>
       <p class="mat-hint table-accent">
-        Import the above as JSON into <a target="_blank" href="https://wowsims.github.io/wotlk/shadow_priest/">the spriest sim</a>.
+        Import the above as JSON into <a target="_blank" href="https://wowsims.github.io/tbc/shadow_priest/">the spriest sim</a>.
       </p>
 
     </mat-form-field>

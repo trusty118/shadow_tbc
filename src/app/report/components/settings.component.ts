@@ -74,17 +74,10 @@ export class SettingsComponent implements OnInit {
       this.form = new FormGroup<ISettingsForm>({
         hasteRating: new FormControl(this.logHasteRating),
         improvedMindBlast: new FormControl(analysis.settings.improvedMindBlast, { nonNullable: true }),
-        improvedMoonkinAura: new FormControl(analysis.settings.improvedMoonkinAura, { nonNullable: true }),
-        improvedRetAura: new FormControl(analysis.settings.improvedRetAura, { nonNullable: true }),
-        wrathOfAir: new FormControl(analysis.settings.wrathOfAir, { nonNullable: true }),
-        t9bonus2pc: new FormControl(t9Bonus2pc || analysis.settings.t9bonus2pc, { nonNullable: true }),
-        moonkinAura: new FormControl(this.auraState(AuraId.MOONKIN_AURA), { nonNullable: true })
       });
 
       if (this.analysis.actorInfo?.initFromLog) {
         this.form.controls.hasteRating.disable();
-        this.form.controls.t9bonus2pc.disable();
-        this.form.controls.moonkinAura.disable();
       }
     });
   }
@@ -101,12 +94,6 @@ export class SettingsComponent implements OnInit {
 
     // form.value excludes disabled controls. That's annoying.
     settings.hasteRating = this.form.controls.hasteRating.value;
-
-    if (!this.analysis.actorInfo?.initFromLog) {
-      if (this.form.controls.moonkinAura.value) {
-        settings.auras.push(AuraId.MOONKIN_AURA);
-      }
-    }
 
     this.settingsSvc.update(this.playerId, settings);
     this.exitSettings();
@@ -131,9 +118,4 @@ export class SettingsComponent implements OnInit {
 interface ISettingsForm {
   hasteRating: FormControl<number|null>;
   improvedMindBlast: FormControl<number>;
-  improvedMoonkinAura: FormControl<boolean>;
-  improvedRetAura: FormControl<boolean>;
-  wrathOfAir: FormControl<boolean>;
-  t9bonus2pc: FormControl<boolean>;
-  moonkinAura: FormControl<boolean>;
 }

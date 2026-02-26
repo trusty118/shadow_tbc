@@ -50,42 +50,6 @@
           }
         </mat-form-field>
       </div>
-
-      <div class="slide-toggle">
-        <mat-slide-toggle color="primary" formControlName="t9bonus2pc">T9 2pc Bonus</mat-slide-toggle>
-        @if (analysis.actorInfo.initFromLog) {
-          <p class="mat-hint table-accent">Found from combatant info.</p>
-        }
-        @if (!analysis.actorInfo.initFromLog) {
-          <p class="mat-hint table-accent">Adds 2 additional ticks to Vampiric Touch.</p>
-        }
-      </div>
-
-      <h4>Auras</h4>
-      <div class="aura-checkboxes">
-        <mat-checkbox color="primary" class="aura" formControlName="moonkinAura">Moonkin/Ret Aura</mat-checkbox>
-        @if (analysis.actorInfo.initFromLog) {
-          <p class="mat-hint table-accent">Auras set from log.</p>
-        }
-        @if (!analysis.actorInfo.initFromLog) {
-          <p class="mat-hint table-accent">Data missing from log. Enable to assume haste aura present pre-fight.</p>
-        }
-      </div>
-
-      <div class="slide-toggle">
-        <mat-slide-toggle color="primary" formControlName="improvedMoonkinAura">Improved Moonkin Form</mat-slide-toggle>
-        <p class="mat-hint table-accent">Adds 3% haste if Moonkin Aura is present.<br/>Does not stack with Swift Retribution.</p>
-      </div>
-
-      <div class="slide-toggle">
-        <mat-slide-toggle color="primary" formControlName="improvedRetAura">Swift Retribution</mat-slide-toggle>
-        <p class="mat-hint table-accent">Adds 3% haste if Retribution Aura is present.<br/>Does not stack with Improved Moonkin Form.</p>
-      </div>
-
-      <div class="slide-toggle">
-        <mat-slide-toggle color="primary" formControlName="wrathOfAir">Wrath of Air Totem</mat-slide-toggle>
-        <p class="mat-hint table-accent">Adds 5% haste to casts where it appears to be missing.<br/>Requires shaman in raid.</p>
-      </div>
     </form>
 
     <div class="footer">

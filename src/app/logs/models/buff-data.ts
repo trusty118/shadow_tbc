@@ -105,38 +105,11 @@ export class Buff {
       summaryIcon: true
     }),
 
-    [AuraId.MOONKIN_AURA]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.RETRIBUTION_AURA],
-      dynamic: (baseData, event, settings) => ({
-        haste: settings.improvedMoonkinAura ? 0.03 : 0
-      })
-    }),
-
     [AuraId.POWER_INFUSION]: buff({
       haste: 0.2,
       trigger: BuffTrigger.EXTERNAL,
       doesNotStackWith: [AuraId.HEROISM, AuraId.BLOODLUST],
       summaryIcon: true
-    }),
-
-    [AuraId.RETRIBUTION_AURA]: buff({
-      trigger: BuffTrigger.EXTERNAL,
-      doesNotStackWith: [AuraId.MOONKIN_AURA],
-      dynamic: (baseData, event, settings) => ({
-        haste: settings.improvedRetAura ? 0.03 : 0
-      })
-    }),
-
-    [AuraId.WRATH_OF_AIR]: buff({
-      haste: 0.05,
-      trigger: BuffTrigger.EXTERNAL,
-      infer: (analysis) => analysis.applyWrathOfAir,
-      name: 'Wrath of Air', // name used when inferring
-      inferenceThresholds: {
-        add: .035,
-        remove: .025
-      }
     })
   }
 }

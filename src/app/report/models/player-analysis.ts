@@ -104,24 +104,6 @@ export class PlayerAnalysis {
     return stats?.hitCounts || [];
   }
 
-  // if a shaman is in the raid, and wrath of air is enabled in settings...
-  get applyWrathOfAir() {
-    if (this._applyWrathOfAir !== undefined) {
-      return this._applyWrathOfAir;
-    }
-
-    if (!this.settings?.wrathOfAir) {
-      this._applyWrathOfAir = false;
-    } else {
-      const shamans = this.log.actors.filter((a) => {
-        return a.type === 'Shaman' && a.encounterIds.includes(this.encounter.id)
-      });
-
-      this._applyWrathOfAir = shamans.length > 0;
-    }
-    return this._applyWrathOfAir;
-  }
-
   private analyze() {
     this._applyWrathOfAir = undefined;
 
