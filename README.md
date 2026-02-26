@@ -38,9 +38,10 @@ Special thanks to Passion for his organizing efforts, Linelo for him theorycraft
 
 - February 26th, 2026
   - Fork for TBC Anniversary
-    - Updated SpellID's.
-    - Remove WotLK References.
+    - Updated SpellID's, removed WotLK references.
+    - Updated Spell Haste rating converion.
     - Added spell icons to Spell Filter dropdown.
+    - Added cancrit check for spells - set to false for Mind Flay, Pain & VT.
 
 - January 16th, 2023
   - Initial Phase 2 (Ulduar) support
