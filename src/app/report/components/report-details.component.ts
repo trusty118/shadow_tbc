@@ -195,17 +195,18 @@ export class ReportDetailsComponent implements OnInit, OnDestroy {
   }
 
   private initializeTabs() {
-    this.tabs = TabDefinitions.map((definition) => {
-      const summary = new (definition.summaryType)(this.analysis, this.highlight);
-      const options = this.statOptions(definition.spellId);
-      const stats = this.analysis.stats(options);
+    this.tabs = TabDefinitions
+      .map((definition) => {
+        const summary = new (definition.summaryType)(this.analysis, this.highlight);
+        const options = this.statOptions(definition.spellId);
+        const stats = this.analysis.stats(options);
 
-      return Object.assign({}, definition, {
-        summary,
-        casts: stats?.casts || [],
-        stats: stats ? summary.report(stats) : [],
-        hitCounts: this.analysis.hitCounts(options)
-      }) as ITab;
+        return Object.assign({}, definition, {
+          summary,
+          casts: stats?.casts || [],
+          stats: stats ? summary.report(stats) : [],
+          hitCounts: this.analysis.hitCounts(options)
+        }) as ITab;
     });
 
     this.eventSvc.subscribe<number>('hitCount', (e) => this.onHitCountChange(e));

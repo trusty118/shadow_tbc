@@ -32,12 +32,12 @@
     align-items: center;
     justify-content: center;
     padding: 1em;
+    gap: 1em;
 
-    .mat-form-field {
+    .mat-mdc-form-field {
       display: inline-block;
-      min-width: 30%;
+      min-width: 25%;
       max-width: 45%;
-      margin: 0 1em 0 1em;
     }
   }
 }
@@ -55,7 +55,7 @@
 
   .report {
     .inputs {
-      .mat-form-field {
+      .mat-mdc-form-field {
         width: 45%;
       }
     }

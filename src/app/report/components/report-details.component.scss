@@ -12,7 +12,7 @@
     width: 250px;
   }
 
-  ::ng-deep.mat-tab-link, ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active {
+  ::ng-deep .mat-mdc-tab, ::ng-deep .mat-mdc-tab-link {
     min-width: 60px;
 
     .label {
@@ -20,7 +20,7 @@
     }
   }
 
-  ::ng-deep.mat-tab-label-active {
+  ::ng-deep .mat-mdc-tab.mdc-tab--active {
     opacity: 1;
   }
 
@@ -46,7 +46,7 @@
 
 @media screen and (max-width: 500px) {
   .content {
-    ::ng-deep.mat-tab-link, ::ng-deep.mat-tab-label, ::ng-deep.mat-tab-label-active {
+    ::ng-deep .mat-mdc-tab, ::ng-deep .mat-mdc-tab-link {
       min-width: 50px;
       max-width: 60px;
 

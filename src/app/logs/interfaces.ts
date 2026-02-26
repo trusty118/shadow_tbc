@@ -87,6 +87,7 @@ export interface IDebuffData extends IEventData {
 export interface ICombatantData extends IEventData {
   type: 'combatantinfo';
   faction: number;
+  race: number;
   intellect: number;
   spirit: number;
   stamina: number;

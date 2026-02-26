@@ -8,27 +8,27 @@
   background-repeat: no-repeat;
 
   // VT
-  &.spell-48160, &.spell-vt {
+  &.spell-34917, &.spell-vt {
     background-image: url('../assets/vt.jpg');
   }
 
   // SW:P
-  &.spell-48125, &.spell-swp {
+  &.spell-25368, &.spell-swp {
     background-image: url('../assets/swp.jpg');
   }
 
   // Mind Blast
-  &.spell-48127, &.spell-mb {
+  &.spell-25375, &.spell-mb {
     background-image: url('../assets/mb.jpg');
   }
 
   // Mind Flay
-  &.spell-48156, &.spell-flay {
+  &.spell-25387, &.spell-flay {
     background-image: url('../assets/flay.jpg');
   }
 
   // SW: Death
-  &.spell-48158, &.spell-swd {
+  &.spell-32996, &.spell-swd {
     background-image: url('../assets/swd.jpg');
   }
 
@@ -38,12 +38,12 @@
   }
 
   // Shield
-  &.spell-48066, &.spell-shield {
+  &.spell-25218, &.spell-shield {
     background-image: url('../assets/shield.jpg');
   }
 
   // Fade
-  &.spell-586, &.spell-fade {
+  &.spell-25429, &.spell-fade {
     background-image: url('../assets/fade.jpg');
   }
 
@@ -52,14 +52,19 @@
     background-image: url('../assets/ward.jpg');
   }
 
-  // Shadow friend
+  // Shadowfiend
   &.spell-34433, &.spell-fiend {
     background-image: url('../assets/fiend.jpg');
   }
 
   // Devouring Plague
-  &.spell-48300, &.spell-dp {
+  &.spell-25467, &.spell-dp {
     background-image: url('../assets/plague.jpg');
+  }
+
+  // Starshards
+  &.spell-25446, &.spell-starshards {
+    background-image: url('../assets/starshards.jpg');
   }
 
   // Desperate prayer
@@ -87,18 +92,6 @@
 
   &.spell-48078, &.spell-holy-nova {
     background-image: url('../assets/holynova.jpg');
-  }
-
-  &.spell-47585, &.spell-dispersion {
-    background-image: url('../assets/dispersion.jpg');
-  }
-
-  &.spell-64901 {
-    background-image: url('../assets/hope.jpg');
-  }
-
-  &.spell-53023, &.spell-mind-sear {
-    background-image: url('../assets/mindsear.jpg');
   }
 
   /**

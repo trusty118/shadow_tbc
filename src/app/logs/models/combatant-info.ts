@@ -29,8 +29,8 @@ export class CombatantInfo {
   private evaluateBonuses() {
     let bonuses: IBonusStats = {};
 
-    // T9
-    const t9ItemIds = [
+    // T9 - Removed for TBC, but leaving here for later.
+    /*const t9ItemIds = [
       48085, 48088, 48078, 48095, 48073, 48755, 48098, 48760,   // head
       48757, 48076, 48081, 48082, 48762, 48101, 48091, 48092,   // shoulders
       48759, 48075, 48080, 48083, 48764, 48100, 48090, 48093,   // chest
@@ -40,20 +40,9 @@ export class CombatantInfo {
     const t9Pieces = this.gear.reduce((c, i) => c + (t9ItemIds.includes(i.id) ? 1 : 0), 0);
     if (t9Pieces >= 2) {
       bonuses = Object.assign(bonuses, this.T9Bonus2pc);
-    }
+    }*/
 
     return bonuses;
-  }
-
-  public get T9Bonus2pc() {
-    // 2pc T9 gives extra ticks to VT
-    return {
-      [SpellId.VAMPIRIC_TOUCH]: {
-        maxDamageInstances: 7,
-        maxTicks: 7,
-        maxDuration: 21,
-      }
-    };
   }
 }
 

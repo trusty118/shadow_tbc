@@ -15,6 +15,7 @@
             </mat-select-trigger>
             @for (option of spells; track option.id) {
               <mat-option [value]="option.id">
+                <span class="icon spell-{{option.id}}" style="display:inline-block; width:20px; height:20px; vertical-align:middle; margin-right:6px;"></span>
                 {{option.name}}
               </mat-option>
             }
@@ -166,7 +167,7 @@
               Buffs: <br/>
               @for (buff of cast.detailBuffs; track buff.id) {
                 <span class="buff">
-                  <a target="_blank" href="https://www.wowhead.com/wotlk/spell={{buff.id}}">
+                  <a target="_blank" href="https://www.wowhead.com/tbc/spell={{buff.id}}">
                     <span class="icon" [ngClass]="buffClass(buff)" [matTooltip]="buffTooltip(buff)" matTooltipClass="tooltip" [matTooltipShowDelay]="200"></span>
                   </a>
                 </span>

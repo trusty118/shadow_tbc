@@ -6,6 +6,7 @@ export enum SpellId {
   // Shadow Priest Abilities (Max Rank)
   BERSERKING = 20554,
   DEATH = 32996,
+  STARSHARDS = 25446,
   DEVOURING_PLAGUE = 25467,
   FADE = 25429,
   FEAR_WARD = 6346,
@@ -21,7 +22,6 @@ export enum SpellId {
   MASS_DISPEL = 32375,
 
   // Related damage IDs
-  IMPROVED_DEVOURING_PLAGUE = 63675,
   MIND_FLAY_TICK = 58381,
   MIND_SEAR_TICK = 53022,
 

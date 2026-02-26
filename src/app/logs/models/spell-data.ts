@@ -101,22 +101,30 @@ export class Spell {
       gcd: false
     }),
 
+    [SpellId.STARSHARDS]: data({
+      rankIds: {
+        [19305]: 7
+      },
+      maxRank: 8,
+      damageType: DamageType.DOT,
+      dotHaste: true,
+      maxDamageInstances: 5,
+      maxDuration: 15,
+      maxTicks: 5,
+      baseTickTime: 3,
+    }),
+
     [SpellId.DEVOURING_PLAGUE]: data({
       rankIds: {
         [19280]: 6
       },
       maxRank: 7,
-      damageIds: [SpellId.IMPROVED_DEVOURING_PLAGUE],
       damageType: DamageType.DOT,
       dotHaste: true,
-      maxDamageInstances: 9, // +1 for improved devouring plague
+      maxDamageInstances: 8,
       maxDuration: 24,
       maxTicks: 8,
       baseTickTime: 3,
-      maxInstancesPerDamageId: {
-        [SpellId.IMPROVED_DEVOURING_PLAGUE]: 1,
-        [SpellId.DEVOURING_PLAGUE]: 8
-      }
     }),
 
     [SpellId.DISPEL_MAGIC]: data({
