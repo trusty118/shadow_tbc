@@ -36,6 +36,12 @@ Special thanks to Passion for his organizing efforts, Linelo for him theorycraft
 
 ### Changelog
 
+- February 26th, 2026
+  - Fork for TBC Anniversary
+    - Updated SpellID's.
+    - Remove WotLK References.
+    - Added spell icons to Spell Filter dropdown.
+
 - January 16th, 2023
   - Initial Phase 2 (Ulduar) support
     - Added new trinkets and T8 4pc buff tracking
