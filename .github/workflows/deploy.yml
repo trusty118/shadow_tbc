@@ -26,5 +26,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/shadow
+          folder: dist/shadow_tbc/browser
           branch: gh-pages
