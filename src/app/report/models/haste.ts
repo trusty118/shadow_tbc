@@ -5,7 +5,7 @@ import { DamageType, ISpellData, Spell } from 'src/app/logs/models/spell-data';
 import { CastDetails } from 'src/app/report/models/cast-details';
 
 export class HasteUtils {
-  public static RATING_FACTOR = 32.79; // level 80
+  public static RATING_FACTOR = 15.77; // level 70
   public static ERROR_THRESHOLD = 0.2; // ignore haste errors larger than 20% -- probably spell pushback or something
                                        // dumb like an untracked debuff (Heigan)
 
