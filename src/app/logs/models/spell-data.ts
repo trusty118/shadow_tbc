@@ -20,6 +20,7 @@ export const SPELL_DEFAULTS: Partial<ISpellData> = {
   maxTicks: 0,
   baseTickTime: 0,
   cooldown: 0,
+  cancrit: true,
   gcd: true,
   dotHaste: false,
   statsByTick: false,
@@ -195,6 +196,7 @@ export class Spell {
         [18807]: 6
       },
       maxRank: 7,
+      cancrit: false,
       damageIds: [SpellId.MIND_FLAY_TICK],
       damageType: DamageType.CHANNEL,
       maxDamageInstances: 3,
@@ -210,6 +212,7 @@ export class Spell {
         [25367]: 9
       },
       maxRank: 10,
+      cancrit: false,
       damageType: DamageType.DOT,
       baseTickTime: 3,
       dotHaste: false
@@ -249,6 +252,7 @@ export class Spell {
         [34916]: 2
       },
       maxRank: 3,
+      cancrit: false,
       damageType: DamageType.DOT,
       dotHaste: false,
       baseCastTime: 1.5,
@@ -285,6 +289,7 @@ export interface ISpellData {
   maxDamageInstances: number;
   maxDuration: number;
   baseTickTime: number;
+  cancrit: boolean;
   maxTicks: number;
   cooldown: number;
   gcd: boolean;

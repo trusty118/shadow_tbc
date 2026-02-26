@@ -302,7 +302,10 @@ export class CastStats {
       this.successCount++;
       this.totalDamage += totalDamage;
       this.totalHits += this.evaluateHits(cast, totalDamage);
-      this.totalCrits += this.evaluateCrits(cast);
+
+      if (spellData.cancrit) {
+        this.totalCrits += this.evaluateCrits(cast);
+      }
       this.totalDamageInstances += cast.instances.length;
       this._totalWeightedSpellpower += (cast.spellPower * totalDamage);
     } else {
